@@ -1,0 +1,26 @@
+<app-header></app-header>
+<div class="loader" *ngIf = "isLoading"></div>
+<div class="container-fluid mt-2">
+    <div class="container-fluid mt-2">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+            <thead >
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let data of tableData;let ind=index" >
+                <th scope="row">{{ind+1}}</th>
+                <td> <a style="cursor: pointer; color: #8dbaff;"  (click) = goToDetail(data.customerId)>{{data.name}}</a></td>
+                <td>{{data.mobile}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.address}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
